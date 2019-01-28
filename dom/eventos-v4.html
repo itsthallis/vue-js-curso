@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="Somar(5)">Somar 5</button>
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{ x }} e {{ y }}
+        <span v-on:mousemove.stop="parar">Parar aqui!</span>
+    </p>
+    <a v-on:click.prevent="" href="http://google.com.br">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            contador: 0,
+            x: 0,
+            y:0
+        },
+        methods:{
+            Somar(soma5){
+                this.contador += soma5
+            },
+            atualizarXY(event){
+                this.x = event.clientY
+                this.y = event.clientY
+            }
+            // Pode ser utilizado um método desta forma ou o modificador de evento .stop
+            // parar(event){
+            //     event.stopPropagation()
+            // }
+        }
+    })
+</script>

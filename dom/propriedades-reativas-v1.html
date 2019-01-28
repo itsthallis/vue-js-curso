@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+
+<div id="app">
+    <h1>{{ titulo }}</h1>
+    <input v-model="titulo" type="text">
+    <!-- V-model cria de uma maneira simples o Two-way data binding, onde o dado quando alterado é atualizado na view e na instância do Vue -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            titulo: 'Usando Vue JS!',
+        }
+    })
+</script>
