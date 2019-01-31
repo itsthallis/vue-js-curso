@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Matador de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://unpkg.com/vue"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <div class="panel scores">
+            <div class="center">
+                <div class="score">
+                    <h1>Jogador</h1>
+                    <div class="life-bar">
+                        <div class="life"></div>
+                    </div>
+                </div>
+                <div class="score">
+                    <h1>Monstro</h1>
+                    <div class="life-bar">
+                        <div :style="{width} : monsterLife" class="life"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-show="end" class="panel result">
+            <h2 v-show="result" :style="{color: win}">Você ganhou!</h2>
+            <h2 v-show="!result" :style="{color: lost}">Você perdeu!</h2>
+        </div>
+
+        <div class="panel buttons">
+            <button @click="playerAtack" v-show="!end" class="atack">Atacar</button>
+            <button v-show="!end" class="special">Ataque especial</button>
+            <button v-show="!end" class="cure">Curar</button>
+            <button @click="end = !end" v-show="!end" class="give-up">Desistir</button>
+            <button @click="end = !end" v-show="end" class="restart">Jogar novamente</button>
+        </div>
+        <div class="panel logs"></div>
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>
